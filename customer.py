@@ -1,18 +1,19 @@
-from customer import Customer
-from restaurant import Restaurant
-from review import Review
+class Restaurant:
+    def __init__(self, restaurant_name):
+        self.restaurant_name = restaurant_name
+        self.reviews = []
 
+    def get_name(self):
+        return self.restaurant_name
 
+    def add_review(self, review):
+        self.reviews.append(review)
 
+    def get_reviews(self):
+        return self.reviews
 
-customer1 = Customer("FAVY", "NJERI")
-restaurant1 = Restaurant("FIVE STAR")
-review1 = Review(customer1, restaurant1, 5)
+    def get_customers(self):
+        return list(set(review.customer for review in self.reviews))
 
-print(customer1.full_name())  # Should print "FAVY NJERI"
-print(restaurant1.get_name())  # Should print "FIVE STAR"
-# print(review1.rating())  # Should print 5
-print(Customer.all())  # Should print a list with customer1
-print(Review.all())  # Should print a list with review1
 
 
