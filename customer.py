@@ -1,19 +1,30 @@
-class Restaurant:
-    def __init__(self, restaurant_name):
-        self.restaurant_name = restaurant_name
-        self.reviews = []
+class Customer:
+    all_customers = []
 
-    def get_name(self):
-        return self.restaurant_name
+    def __init__(self, given_name, family_name):
+        self.given_name = given_name
+        self.family_name = family_name
+        Customer.all_customers.append(self)
 
-    def add_review(self, review):
-        self.reviews.append(review)
+    def set_given_name(self, new_given_name):
+        self.given_name = new_given_name
 
-    def get_reviews(self):
-        return self.reviews
+    def set_family_name(self, new_family_name):
+        self.family_name = new_family_name
 
-    def get_customers(self):
-        return list(set(review.customer for review in self.reviews))
+    def given_name(self):
+        return self.given_name
+
+    def family_name(self):
+        return self.family_name
+
+    def full_name(self):
+        return f"{self.given_name} {self.family_name}"
+
+    @classmethod
+    def all(cls):
+        return cls.all_customers
+
 
 
 
